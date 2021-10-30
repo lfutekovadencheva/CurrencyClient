@@ -12,6 +12,14 @@ import com.squareup.okhttp.Response;
 import cache.ICache;
 import cache.SimpleCache;
 
+/**
+ * 
+ * A class giving the currency rates.
+ * If the currency rates are available in the cache, the cache entry is used. Otherwise, a new REST call request is made
+ * 
+ * @author Luba Dencheva
+ *
+ */
 public class CurrencyClient {
 	public static final String API_KEY = "40dddfd0e8e055479f811c169416a45f";
 	public static final String BASE_URI = "https://api.exchangeratesapi.io/v1";
