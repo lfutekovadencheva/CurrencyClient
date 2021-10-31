@@ -161,4 +161,18 @@ public class CurrencyClientTests {
 		Assertions.assertFalse(cache.containsKey("EUR"));
 	}
 
+	@Test
+	/**
+	 * Test steps: 
+	 * * request an invalid currency and make sure the system returns null but doesn't crash
+	 */
+	public void invalidCurrencyTests() throws IOException {
+		SimpleCache<CurrencyRates> cache = new SimpleCache<>(5); // 5 seconds expiration interval
+		CurrencyClient cc = new CurrencyClient(cache);
+
+		CurrencyRates invalid = cc.getCurrencyRates("TEST");
+		Assertions.assertNull(invalid);
+	}
+
+	
 }
